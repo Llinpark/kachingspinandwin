@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Trader Spin & Win</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Logo Header Section -->
+        <header class="logo-container">
+            <!-- Replace the src with your actual logo image file path -->
+            <img src="logo.png" alt="Company Logo" class="company-logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='block';">
+            <div id="logo-placeholder" class="logo-text-fallback">TRADER NETWORK</div>
+        </header>
+
+        <h1>TRADER SPIN & WIN</h1>
+        
+        <div class="wheel-outer-ring">
+            <div class="wheel-container">
+                <div class="pointer"></div>
+                <canvas id="wheel" width="440" height="440"></canvas>
+            </div>
+        </div>
+
+        <button id="spin-btn">SPIN WHEEL</button>
+        <div id="winner-wrapper">
+            <div id="winner-display"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="index.js"></script>
+</body>
+    <script src="index.js"></script>
+</body>
+</html>

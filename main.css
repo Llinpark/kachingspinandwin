@@ -1,0 +1,175 @@
+/* Deep, luxury dark blue background with radial glow */
+body {
+    background: radial-gradient(circle at center, #0f2b5c 0%, #051026 100%);
+    color: #ffffff;
+    font-family: 'Cinzel', 'Montserrat', 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Glassmorphic luxury container */
+.app-container {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 40px 60px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Logo Design */
+.logo-container {
+    margin-bottom: 15px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo {
+    max-height: 100%;
+    max-width: 180px;
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.3));
+}
+
+/* Fallback text styled like a luxury brand if image missing */
+.logo-text-fallback {
+    display: none;
+    font-size: 18px;
+    letter-spacing: 6px;
+    font-weight: 700;
+    color: #d4af37;
+    background: linear-gradient(135deg, #fff 30%, #d4af37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    margin: 0 0 35px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Metallic gold outer casing for the wheel */
+.wheel-outer-ring {
+    padding: 12px;
+    background: linear-gradient(135deg, #bf953f, #aa771c, #fcf6ba, #aa771c);
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 2px 8px rgba(255,255,255,0.4);
+    margin-bottom: 30px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    overflow: visible;
+}
+
+/* 3D sculpted pointer */
+.pointer {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 32px solid #fff;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.6));
+    z-index: 10;
+}
+
+.pointer::after {
+    content: '';
+    position: absolute;
+    top: -32px;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 25px solid #d4af37;
+}
+
+canvas {
+    border-radius: 50%;
+    display: block;
+}
+
+/* High-end polished button */
+button {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #bf953f 0%, #d4af37 50%, #aa771c 100%);
+    color: #051026;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(212, 175, 55, 0.35);
+    background: linear-gradient(135deg, #fcf6ba 0%, #d4af37 50%, #bf953f 100%);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background: linear-gradient(135deg, #2c3a4e, #1a2433);
+    color: #526682;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Winner Announcement Styling */
+#winner-wrapper {
+    margin-top: 25px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#winner-display {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
