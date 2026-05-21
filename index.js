@@ -1,9 +1,26 @@
 // --- 1. DATA SETUP ---
-// Generate your pool of 700 traders (1 to 700)
-const totalTradersPool = [];
-for (let i = 1; i <= 700; i++) {
-    totalTradersPool.push(i.toString());
-}
+// Your explicit pool of premium trader numbers
+const totalTradersPool = [
+    "521007968", "521006352", "731001023", "521002108", "731001023", "521002108", "521004465", "521004486", 
+    "521004500", "521006225", "521006352", "521007128", "521007256", "521007505", "521007968", "521008047", 
+    "521009132", "501017223", "501018310", "501018346", "501018478", "501018514", "501030961", "501031601", 
+    "501044664", "501052401", "501056106", "451000020", "581007251", "111083265", "111094148", "561006057", 
+    "501052401", "111083265", "501018478", "501018514", "501022111", "501026656", "501030961", "501043953", 
+    "501049484", "501052401", "501054858", "501056106", "501061388", "501064392", "501070428", "451000572", 
+    "581007251", "111083261", "111102265", "501018478", "501018493", "501018514", "501020775", "501022111", 
+    "501026515", "501030961", "501035155", "501038201", "501039004", "501042284", "501043953", "501045964", 
+    "501054552", "501056106", "501061388", "501070428", "501072394", "451000572", "581004475", "581005163", 
+    "581006430", "581007251", "581010563", "111083261", "111102265", "501018514", "501039004", "501046960", 
+    "501056106", "501017210", "501017223", "501017286", "501017487", "501018199", "501018310", "501018346", 
+    "501018478", "501018493", "501018514", "501020708", "501020775", "501020779", "501021459", "501021478", 
+    "501021674", "501026277", "501026474", "501026515", "501026656", "501026814", "501027426", "501028506", 
+    "501030961", "501031601", "501035155", "501038201", "501039004", "501042284", "501043953", "501044664", 
+    "501046960", "501047064", "501047463", "501049484", "501050712", "501050885", "501051386", "501052289", 
+    "501052401", "501052416", "501052985", "501054552", "501054858", "501056106", "501061388", "501064392", 
+    "501064815", "501067026", "451000020", "501070428", "501072394", "501072871", "501072941", "541002074", 
+    "581004615", "581004727", "581005163", "581006430", "581007251", "581010563", "111083265", "111094148", 
+    "111102265", "111109856", "111110083", "111110782"
+];
 
 // Visual layout configurations (Fixed 12 premium slices for a clean look)
 const visualSegments = ["✦", "✧", "✦", "✧", "✦", "✧", "✦", "✧", "✦", "✧", "✦", "✧"];
@@ -132,18 +149,29 @@ function spin() {
     requestAnimationFrame(animate);
 }
 
-/// --- 5. LOGIC ENGINE ---
+// --- 5. LOGIC ENGINE ---
 function displayWinner() {
-    // Select a random winner from the entire pool of 700 traders
+    // Select a random winner from the entire pool of unique traders
     const randomIndex = Math.floor(Math.random() * totalTradersPool.length);
     const luckyTrader = totalTradersPool[randomIndex];
 
-    // Push the results live to your luxury container layout
-    winnerDisplay.innerHTML = `WINNER: <span style="color: #fcf6ba; font-weight: bold; text-shadow: 0 0 12px rgba(212,175,55,0.7)">TRADER #${luckyTrader}</span>`;
+    // PRIVACY MASKING LOGIC: Expose the first 3 digits and last 3 digits, mask the middle.
+    let maskedTrader;
+    if (luckyTrader.length >= 6) {
+        const firstThree = luckyTrader.substring(0, 3);
+        const lastThree = luckyTrader.substring(luckyTrader.length - 3);
+        const middleMask = "*".repeat(luckyTrader.length - 6);
+        maskedTrader = `${firstThree}${middleMask}${lastThree}`;
+    } else {
+        // Fallback safety formatting for unexpected shorter lengths
+        maskedTrader = "****" + luckyTrader.slice(-4);
+    }
+
+    // Push the masked results live to your luxury container layout
+    winnerDisplay.innerHTML = `WINNER: <span style="color: #fcf6ba; font-weight: bold; text-shadow: 0 0 12px rgba(212,175,55,0.7)">TRADER #${maskedTrader}</span>`;
     winnerDisplay.style.opacity = 1;
 
-    // --- NEW: LUXURY CELEBRATION SHOWER ---
-    // This creates a premium burst of gold, dark blue, and white confetti
+    // --- LUXURY CELEBRATION SHOWER ---
     const duration = 3 * 1000; // Celebrate for 3 seconds
     const end = Date.now() + duration;
 

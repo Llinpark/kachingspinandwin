@@ -169,6 +169,43 @@ button:disabled {
     animation: fadeIn 0.5s ease;
 }
 
+/* Premium Disclaimer Styling */
+.disclaimer-text {
+    margin-top: 35px;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    padding-top: 20px;
+    max-width: 90%;
+}
+
+.disclaimer-text strong {
+    color: rgba(212, 175, 55, 0.8);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.disclaimer-text span {
+    color: #fcf6ba;
+    font-weight: 400;
+}
+
+.disclaimer-text a {
+    color: #fcf6ba; /* Matches your glowing gold accent */
+    text-decoration: none; /* Removes the default ugly underline */
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.disclaimer-text a:hover {
+    color: #ffffff; /* Gently glows white when hovered over by a user */
+    text-decoration: underline; /* Adds a clean underline on hover for clarity */
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
